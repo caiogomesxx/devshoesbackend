@@ -47,7 +47,7 @@ namespace Produtos.Controllers
         [SwaggerOperation(Summary = "Insere um produto",
             Description = "Insere um produto")]
         [HttpPost("InserirProduto")]
-        public ActionResult InserirProduto(ProdutosDTO produtos)
+        public ActionResult InserirProduto([FromBody]ProdutosDTO produtos)
         {
             try
             {
@@ -67,13 +67,13 @@ namespace Produtos.Controllers
         [ProducesResponseType(500)]
         [SwaggerOperation(Summary = "Busca um produto pelo ID",
             Description = "Busca um produto pelo ID")]
-        [HttpGet("GetProduto")]
-        public ActionResult GetProduto(int idProduto)
+        [HttpGet("GetProduto/{id:int}")]
+        public ActionResult GetProduto(int id)
         {
             try
             {
                 Produtos.Models.Produtos Model = new(DBLOJA);
-                ProdutosDTO response = Model.GetProduto(idProduto);
+                ProdutosDTO response = Model.GetProduto(id);
 
                 return StatusCode((int)HttpStatusCode.OK, response);
             }

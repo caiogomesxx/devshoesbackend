@@ -12,9 +12,6 @@ namespace Produtos.Context
         }
       
 
-        public DbSet<TBCategoria>? TB_CATEGORIAS { get; set; }
         public DbSet<TBProduto>? TB_PRODUTOS { get;set; }
-        public DbSet<TBUsuario>? TB_USUARIOS { get; set; }
-        public DbSet<TBImagem>? TB_IMAGEM { get; set; }
     }
 }

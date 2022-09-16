@@ -12,10 +12,7 @@ namespace Produtos.Models
         public decimal Preco { get; set; }
         public int Estoque { get; set; }
         public DateTime HoraCadastro { get; set; }
-        public int CategoriaId { get; set; }
-        public int ImagemId { get; set; }
-        public List<TBImagem>? Imagens { get; set; }
-        public TBCategoria? Categoria { get; set; }
+        public string ImagemUrl { get; set; }
 
     }
 }

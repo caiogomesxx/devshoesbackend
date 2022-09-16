@@ -17,14 +17,13 @@ namespace Produtos.Models
             {
                 TBProduto tbProdutos = new TBProduto()
                 {
-                    ProdutoId = produto.ProdutoId,
+                    ProdutoId = 0,
                     Nome = produto.Nome,
                     Descricao = produto.Descricao,
                     Preco = produto.Preco,
-                    Estoque = produto.Estoque,
+                    Estoque = 1,
                     HoraCadastro = DateTime.Now,
-                    CategoriaId = produto.CategoriaId,
-                    ImagemId = produto.ProdutoId
+                    ImagemUrl = produto.ImagemUrl
 
                 };
                 DBLOJA.TB_PRODUTOS.Add(tbProdutos);
@@ -60,8 +59,7 @@ namespace Produtos.Models
                 produto.Descricao = produto.Descricao;
                 produto.Preco = produto.Preco;
                 produto.Estoque = produto.Estoque;
-                produto.CategoriaId = produto.CategoriaId;
-                produto.ImagemId = produto.ProdutoId;
+                produto.ImagemUrl = produto.ImagemUrl;
                 DBLOJA.SaveChanges();
 
             }
@@ -75,9 +73,7 @@ namespace Produtos.Models
             try
             {
                 List<ProdutosDTO> lstProdutos = (from p in DBLOJA.TB_PRODUTOS
-                                                 join
-                                                 i in DBLOJA.TB_IMAGEM
-                                                 on p.ProdutoId equals i.ProdutoId
+                                                
                                                  select new ProdutosDTO()
                                                  {
                                                      ProdutoId = p.ProdutoId,
@@ -85,8 +81,7 @@ namespace Produtos.Models
                                                      Descricao = p.Descricao,
                                                      Preco = p.Preco,
                                                      Estoque = p.Estoque,
-                                                     CategoriaId = p.CategoriaId,
-                                                     ImagemUrl = p.Imagens
+                                                     ImagemUrl = p.ImagemUrl
                                                  }
                                                 ).ToList();
 
@@ -111,8 +106,7 @@ namespace Produtos.Models
                     Descricao = tbProduto.Descricao,
                     Preco = tbProduto.Preco,
                     Estoque = tbProduto.Estoque,
-                    CategoriaId = tbProduto.CategoriaId,
-                    ImagemUrl = tbProduto.Imagens
+                    ImagemUrl = tbProduto.ImagemUrl
                 };
 
                 return produto;

@@ -10,7 +10,6 @@ namespace Produtos.DTO
         public decimal Preco { get; set; }
         public int Estoque { get; set; }
         public DateTime HoraCadastro { get; set; }
-        public int CategoriaId { get; set; }
-        public List<TBImagem> ImagemUrl { get; set; }
+        public string ImagemUrl { get; set; }
     }
 }
